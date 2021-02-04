@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JS CRUD Application</title>
+</head>
+<script>
+	
+	
+	function userdata()
+	{
+		var students = [
+			document.getElementById('sid').value,
+			document.getElementById('sname').value,
+			document.getElementById('fname').value,
+			document.getElementById('email').value,
+			document.getElementById('pass').value,
+			document.getElementById('phone').value
+		];
+		
+		
+document.getElementById('data').innerHTML += "<tr>" + 
+	"<td id='sid2'>" + students[0] + "</td>" + 
+	"<td id='sname2'>" + students[1] + "</td>" + 
+	"<td id='fname2'>" + students[2] + "</td>" + 
+	"<td id='email2'>" + students[3] + "</td>" + 
+	"<td id='pass2'>" + students[4] + "</td>" + 
+	"<td id='phone2'>" + students[5] + "</td>" + 
+	"<td><button onclick='editdata()'>Edit</button></td>" + 
+	"</tr>";
+		
+		
+		document.getElementById('sid').value = "";
+		document.getElementById('sname').value = "";
+		document.getElementById('fname').value = "";
+		document.getElementById('email').value = "";
+		document.getElementById('pass').value = "";
+		document.getElementById('phone').value = "";
+		
+		
+		
+	}
+	
+	
+	function editdata()
+	{
+		
+		
+		var sid = document.getElementById('sid2').innerHTML;
+		var sname = document.getElementById('sname2').innerHTML;
+		var fname = document.getElementById('fname2').innerHTML;
+		var email = document.getElementById('email2').innerHTML;
+		var pass = document.getElementById('pass2').innerHTML;
+		var phone = document.getElementById('phone2').innerHTML;
+		
+		document.getElementById('sid').value = sid;
+		document.getElementById('sname').value = sname;
+		document.getElementById('fname').value = fname;
+		document.getElementById('email').value = email;
+		document.getElementById('pass').value = pass;
+		document.getElementById('phone').value = phone;
+		document.getElementById('submit').style.display = 'none';
+		document.getElementById('update').style.display = 'block';
+		
+		
+	}
+	
+	function updatedata()
+	{
+		var sid = document.getElementById('sid').value;
+		var sname = document.getElementById('sname').value;
+		var fname = document.getElementById('fname').value;
+		var email = document.getElementById('email').value;
+		var pass = document.getElementById('pass').value;
+		var phone = document.getElementById('phone').value;
+		
+		document.getElementById('sid2').innerHTML = sid;
+		document.getElementById('sname2').innerHTML = sname;
+		document.getElementById('fname2').innerHTML = fname;
+		document.getElementById('email2').innerHTML = email;
+		document.getElementById('pass2').innerHTML = pass;
+		document.getElementById('phone2').innerHTML = phone;
+		
+		document.getElementById('submit').style.display = 'block';
+		document.getElementById('update').style.display = 'none';
+		
+		document.getElementById('sid').value = "";
+		document.getElementById('sname').value = "";
+		document.getElementById('fname').value = "";
+		document.getElementById('email').value = "";
+		document.getElementById('pass').value = "";
+		document.getElementById('phone').value = "";
+	}
+	
+	
+	
+	
+</script>
+<body>
+
+	<form>
+		<input type="number" placeholder="Enter Student ID" required id="sid">
+		<br>
+		<br>
+		<input type="text" placeholder="Enter Student Name" required id="sname">
+		<br>
+		<br>
+		<input type="text" placeholder="Enter Father Name" required id="fname">
+		<br>
+		<br>
+		<input type="email" placeholder="Enter Email" required id="email">
+		<br>
+		<br>
+		<input type="password" placeholder="Enter Password" required id="pass">
+		<br>
+		<br>
+		<input type="text" placeholder="Enter Phone No#" required id="phone">
+		<br>
+		<br>
+		<button type="button" id="submit" onClick="userdata()">Save Data</button>
+		<button type="button" id="update" onClick="updatedata()" style="display: none;">Update Data</button>
+		<script>
+		
+	
+		
+		</script>
+	</form>
+	
+	<br>
+	<br>
+	
+	<table border="1">
+		<thead>
+		<tr>
+			<th>Student ID</th>
+			<th>Student Name</th>
+			<th>Father Name</th>
+			<th>Email</th>
+			<th>Password</th>
+			<th>Phone No#</th>
+			<th>Edit</th>
+		</tr>
+		</thead>
+		
+		<tbody id="data">
+			
+		</tbody>
+		
+		
+		
+		
+		
+	</table>
+
+
+</body>
+</html>
